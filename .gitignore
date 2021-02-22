@@ -1,5 +1,2 @@
 # Dependency directories
 node_modules/
-
-# dotenv enviroment variable file
-process.env
