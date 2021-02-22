@@ -1,0 +1,11 @@
+{
+    "name": "Trecco The Gecko",
+    "version": "1.0.0",
+    "description": "Smash Ultimate Bot by BlazeTheSnep",
+    "author": "BlazeTheSnep",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^12.5.1",
+        "dotenv": "^8.2.0"
+    }
+}
