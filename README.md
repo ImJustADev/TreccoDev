@@ -1,6 +1,2 @@
 # TreccoDev
-Twitter Account Data Migration Software
-
-To Do:
-Migrate Host Files Over (At some point)
-Laziness is a curse
+Smash Ultimate Custom Coded Bot v0.1
