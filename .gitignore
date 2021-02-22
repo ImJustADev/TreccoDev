@@ -1,5 +1,5 @@
 # Dependency directories
 node_modules/
 
-# Bot Token
-token.env
+# dotenv enviroment variable file
+.env
