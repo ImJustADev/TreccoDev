@@ -1,0 +1,1 @@
+const Command = require('../commands/Command.js');
