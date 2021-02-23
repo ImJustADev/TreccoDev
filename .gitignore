@@ -1,8 +1,5 @@
 # Dependency directories
 node_modules/
 
-# index
-index.js
-
 # personal json
 config.json

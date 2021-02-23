@@ -10,7 +10,7 @@ const color = {
     WHITE: "\x1b[37m",
     RESET: "\x1b[0m",
 
-}
+};
 
 class Logger {
     constructor(msg) {

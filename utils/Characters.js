@@ -1,4 +1,4 @@
-var fighter = {
+const Characters = {
 
     
     1: {
@@ -100,6 +100,4 @@ var fighter = {
     82: "MYTHRA",
     
 
-}
-
-module.exports = fighter;
+};
