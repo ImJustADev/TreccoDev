@@ -1,8 +1,8 @@
-const Command = require('./Command.js');
+const Command = require('../commands/Command.js');
 const fs = require('fs');
 
 const categories = ["Codes", "Fun", "Technical", "Misc."];
-const color = 0x86D0CF;
+const color = 15105570;
 
 // g!help <cmd>
 
@@ -22,7 +22,7 @@ class Help extends Command {
       */
 
       var found = false;
-      fs.readFile('./commands/commands.json', 'utf8', function(err, data) {
+      fs.readFile('../commands/commands.json', 'utf8', function(err, data) {
         if (err) throw err;
         var obj = JSON.parse(data);
         for (var i = 0; i < obj.length; i++) {
@@ -31,7 +31,7 @@ class Help extends Command {
               msg.channel.send({
                 embed: {
                   author: {
-                    name: "Help"
+                    name: "Help Menu"
                   },
                   title: "**g!" + obj[i][j].name + "**",
                   color: color,
@@ -48,7 +48,7 @@ class Help extends Command {
         }
       });
     } catch (e) { // General g!help
-      fs.readFile('./commands/commands.json', 'utf8', function(err, data) {
+      fs.readFile('../commands/commands.json', 'utf8', function(err, data) {
         if (err) throw err;
         var obj = JSON.parse(data);
         var message = [];
@@ -61,11 +61,11 @@ class Help extends Command {
         msg.channel.send({
           embed: {
             author: {
-              name: "Help"
+              name: "Help Menu"
             },
             title: "**Command List**",
             color: color,
-            description: "Basic command structure is `g![command]`. Commands are *not* case-sensitive. Use `g!help [command]` for more information about that command.",
+            description: "To use this bot type `g![command]`. Commands are *not* case-sensitive. Use `g!help [command]` for more information about a specific command.",
             fields: [{
                 name: categories[0],
                 value: message[0]

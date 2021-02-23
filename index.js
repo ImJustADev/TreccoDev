@@ -5,6 +5,7 @@ const Logger = require('./utils/Logger.js');
 const Roles = require('./roles/Roles.js');
 
 var npm = require('./package.json');
+const Help = require('./commands/Help');
 
 const build = npm.version;
 const prefix = "g!";
@@ -35,9 +36,25 @@ client.on('ready', () => {
         try {
             if (msg.content.toLowerCase().startsWith(prefix) && msg.author.bot != true) {
                 var input = msg.content.toLowerCase().substring(prefix.length);
+
                 if (input.startsWith("help")) {
-                    new Logger('Do stuff');
+                    new Help(msg);
+                } 
+                else if (input == "github") {
+                    msg.channel.send({
+                        embed: {
+                            author: {
+                                name: "GitHub",
+                                icon_url: "https://raw.githubusercontent.com/imjustadev/TreccoDev/main/misc/github-favicon.png"
+                            },
+                            title: "Trecco The Gecko",
+                            url: "https://github.com/imjustadev/TreccoDev/",
+                            color: color,
+                            description: "View the original project source code",
+                        }
+                    });
                 }
+
                 else if (input.startsWith("role")) {
                     new Roles(msg);
                 }
