@@ -1,9 +1,16 @@
 {
-    "name": "TreccoTheGecko",
+    "name": "TreccoBot",
     "version": "1.0.0",
-    "description": "Smash Ultimate Bot by BlazeTheSnep",
+    "description": "A Discord bot for Smash Ultimate",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/imjustadev/TreccoDev.git"
+    },
     "author": "BlazeTheSnep",
-    "license": "ISC",
+    "license": "UNLICENSED",
+    "homepage": "https://github.com/imjustADev/TreccoDev#readme",
+
     "dependencies": {
         "discord.js": "^12.5.1",
         "dotenv": "^8.2.0"

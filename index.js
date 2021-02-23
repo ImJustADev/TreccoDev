@@ -8,10 +8,8 @@ var npm = require('./package.json');
 
 
 const build = npm.version;
-const prefix = "gecko!";
+const prefix = "g!";
 
-
-client.login(config.TOKEN);
 
 client.on('ready', () => {
 
@@ -29,7 +27,7 @@ client.on('ready', () => {
         status: 'online',
         afk: false,
         game: {
-            name: "gecko!help for commands"
+            name: "g!help for commands"
         }
 });
 
@@ -51,3 +49,10 @@ client.on('ready', () => {
         }
     });
 });
+
+if (process.env.TOKEN != undefined) {        
+    client.login(process.env.TOKEN);
+}
+else {
+    client.log(config.TOKEN);
+}

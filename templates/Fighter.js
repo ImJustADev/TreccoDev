@@ -1,6 +1,10 @@
-const Characters = {
+var fighter_obj = {
 
-    
+    //range of character indexes
+    min_val: 1, 
+    max_val: 83,
+
+    //Fighters
     1: {
         DISPLAY_NAME: "Mario",
         CHARACTER_ID: "1",
@@ -98,6 +102,9 @@ const Characters = {
     80: "SEPHIROTH",
     81: "PYRA", 
     82: "MYTHRA",
-    
 
+}
+
+export {
+    fighter_obj
 };
