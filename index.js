@@ -6,7 +6,6 @@ const Roles = require('./roles/Roles.js');
 
 var npm = require('./package.json');
 
-
 const build = npm.version;
 const prefix = "g!";
 
@@ -54,5 +53,5 @@ if (process.env.TOKEN != undefined) {
     client.login(process.env.TOKEN);
 }
 else {
-    client.log(config.TOKEN);
+    client.login(config.TOKEN);
 }

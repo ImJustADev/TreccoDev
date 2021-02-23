@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "A Discord bot for Smash Ultimate",
     "main": "index.js",
-    "type": "module",
     "repository": {
         "type": "git",
         "url": "git://github.com/imjustadev/TreccoDev.git"
@@ -11,7 +10,6 @@
     "author": "BlazeTheSnep",
     "license": "UNLICENSED",
     "homepage": "https://github.com/imjustADev/TreccoDev#readme",
-
     "dependencies": {
         "discord.js": "^12.5.1",
         "dotenv": "^8.2.0"

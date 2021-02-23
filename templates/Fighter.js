@@ -1,8 +1,5 @@
-var fighter_obj = {
+const fighter_object = {
 
-    //range of character indexes
-    min_val: 1, 
-    max_val: 83,
 
     //Fighters
     1: {
@@ -20,6 +17,7 @@ var fighter_obj = {
         DISCORD_ROLE: "813570006176235530",
     },
 
+    /*
     3: "LINK",
     4: "SAMUS",
     5: "DARK_SAMUS",
@@ -102,7 +100,8 @@ var fighter_obj = {
     80: "SEPHIROTH",
     81: "PYRA", 
     82: "MYTHRA",
+    */
 
 };
 
-export { fighter_obj };
+module.exports =  { fighter_object };

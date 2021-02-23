@@ -1,15 +1,15 @@
-fighter_obj =  require('../templates/Fighter.js');
 const Command = require('../commands/Command.js');
+const Logger = require('../utils/Logger.js');
 var config = require('../config.json');
-const { fighter_obj } = require('../templates/Fighter.js');
+const Fighter = require('../templates/Fighter.js');
 
 var input; //user input
 
 //define list bounds
-var min = fighter_obj.min_val;
-var max = fighter_obj.max_val;
+var min = 1;
+var max = 82;
 
-var guild_id = config.GUILD_ID;
+var input;
 
 var display;
 var discord_id;
@@ -18,30 +18,43 @@ class Roles extends Command {
     constructor(msg, client) {
         super(msg);
 
-        
-        if (msg.guild.id == guild_id) {
+        if (msg.guild.id == config.GUILD_ID) {
             if (msg.content.includes(" ")) {
 
                 input = parseInt(msg.content.split(" ")[1]); //raw text
                 
-                if ((input > min) && (input < max))  {
+                if ((input >= min) && (input <= max))  {
                     
                     //get discord role ID
-                    display = fighter_obj[input].DISPLAY_NAME;
-                    discord_id = fighter_obj[input].DISCORD_ROLE;
+
+                    switch(input) {
+                        case 1:
+                            display = Fighter.fighter_object[1].DISPLAY_NAME;
+                            discord_id = Fighter.fighter_object[1].DISCORD_ROLE;
+
+                            break;
+                        case 2:
+                            display = Fighter.fighter_object[2].DISPLAY_NAME;
+                            discord_id = Fighter.fighter_object[2].DISCORD_ROLE;
+
+                            break;
+                        default:
+                            msg.reply("That role has not been set up yet!");
+                            break;
+                    }
+
     
-                    user_role = msg.member.roles.get(discord_id);
 
-                    if (user_role) { //not null
+                    if (msg.member.roles.cache.has(discord_id)) { //not null
 
-                        msg.member.removeRole(discord_id)
-                        .then(msg.reply("You have removed the " + char_name + " role."))
+                        msg.member.roles.remove(discord_id).catch(console.error)
+                        .then(msg.reply("You have removed the " + display + " role."))
                         .catch(console.error);
 
                     }
                     else {
-                        msg.member.addRole(discord_id)
-                        .then(msg.reply("You have added the " + char_name + " role."))
+                        msg.member.roles.add(discord_id).catch(console.error)
+                        .then(msg.reply("You have added the " + display + " role."))
                         .catch(console.error);
                     }
                 }
