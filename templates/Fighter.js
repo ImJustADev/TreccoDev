@@ -103,8 +103,6 @@ var fighter_obj = {
     81: "PYRA", 
     82: "MYTHRA",
 
-}
-
-export {
-    fighter_obj
 };
+
+export { fighter_obj };

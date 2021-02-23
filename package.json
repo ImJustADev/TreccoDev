@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A Discord bot for Smash Ultimate",
     "main": "index.js",
+    "type": "module",
     "repository": {
         "type": "git",
         "url": "git://github.com/imjustadev/TreccoDev.git"

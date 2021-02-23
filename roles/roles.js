@@ -1,7 +1,7 @@
-import { fighter_obj } from '../templates/Fighter.js';
-
+fighter_obj =  require('../templates/Fighter.js');
 const Command = require('../commands/Command.js');
 var config = require('../config.json');
+const { fighter_obj } = require('../templates/Fighter.js');
 
 var input; //user input
 
