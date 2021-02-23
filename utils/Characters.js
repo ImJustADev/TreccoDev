@@ -1,9 +1,21 @@
-const { builtinModules } = require("module")
+var fighter = {
 
-const Characters = {
+    
+    1: {
+        DISPLAY_NAME: "Mario",
+        CHARACTER_ID: "1",
+        IS_DLC: "false",
+        DISCORD_ROLE: "813569860960649256",
+    },
 
-    1: "MARIO",
-    2: "DONKEY_KONG",
+
+    2: {
+        DISPLAY_NAME: "Donkey Kong",
+        CHARACTER_ID: "2",
+        IS_DLC: "false",
+        DISCORD_ROLE: "813570006176235530",
+    },
+
     3: "LINK",
     4: "SAMUS",
     5: "DARK_SAMUS",
@@ -86,7 +98,8 @@ const Characters = {
     80: "SEPHIROTH",
     81: "PYRA", 
     82: "MYTHRA",
+    
 
 }
 
-modules.exports = Characters;
+module.exports = fighter;

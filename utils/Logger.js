@@ -19,4 +19,4 @@ class Logger {
     }
 }
 
-modules.exports = Logger;
+module.exports = Logger;
