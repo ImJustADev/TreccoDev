@@ -89,4 +89,4 @@ const Characters = {
 
 }
 
-builtinModules.exports = Characters;
+modules.exports = Characters;

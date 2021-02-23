@@ -18,3 +18,5 @@ class Logger {
         console.log("[ " + time + " ] " + msg);
     }
 }
+
+modules.exports = Logger;
