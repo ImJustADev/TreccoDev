@@ -3,7 +3,9 @@ const client = new Discord.Client();
 var config = require('./config.json');
 const Logger = require('./utils/Logger.js');
 const Roles = require('./roles/Roles.js');
+const Coin = require('./commands/Coin.js');
 
+const color = 0xFF9900;
 var npm = require('./package.json');
 const Help = require('./commands/Help');
 
@@ -50,13 +52,15 @@ client.on('ready', () => {
                             title: "Trecco The Gecko",
                             url: "https://github.com/imjustadev/TreccoDev/",
                             color: color,
-                            description: "View the original project source code",
+                            description: "View the original project source code here\n\nBot Version: " + build + "\nAuthor: Blaze#0069",
                         }
                     });
                 }
-
                 else if (input.startsWith("role")) {
                     new Roles(msg);
+                }
+                else if (input == "coin" || input == "c") {
+                 new Coin(msg);
                 }
                 
             }
