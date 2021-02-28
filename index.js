@@ -1,11 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
+//move options to config file later (2/28/2021) (Blaze)
 var config = require('./config.json');
 const Logger = require('./utils/Logger.js');
 const Roles = require('./roles/Roles.js');
 const Coin = require('./commands/Coin.js');
 const Color = require('./templates/Color.js');
 const ServerInfo = require('./commands/ServerInfo.js');
+const RoleMenu = require('./commands/RoleMenu.js');
 
 const color = 0xFF9900;
 var npm = require('./package.json');
@@ -53,8 +56,14 @@ client.on('ready', () => {
                         }
                     });
                 }
-                else if (input.startsWith("role")) {
+
+                //clean code to map<> (2/28/2021) (Blaze)
+
+                else if (input.toLowerCase == ("role")) {
                     new Roles(msg);
+                }
+                else if (input.startsWith("rolemenu")) {
+                    new RoleMenu(msg);
                 }
                 else if (input == "coin" || input == "c") {
                     new Coin(msg);

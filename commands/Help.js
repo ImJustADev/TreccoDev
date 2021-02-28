@@ -22,7 +22,7 @@ class Help extends Command {
       */
 
       var found = false;
-      fs.readFile('./commands/commands.json', 'utf8', function(err, data) {
+      fs.readFile('./commands/templates/commands.json', 'utf8', function(err, data) {
         if (err) throw err;
         var obj = JSON.parse(data);
         for (var i = 0; i < obj.length; i++) {
@@ -50,7 +50,7 @@ class Help extends Command {
         }
       });
     } catch (e) { // General g!help
-      fs.readFile('./commands/commands.json', 'utf8', function(err, data) {
+      fs.readFile('./commands/templates/commands.json', 'utf8', function(err, data) {
         if (err) throw err;
         var obj = JSON.parse(data);
         var message = [];
