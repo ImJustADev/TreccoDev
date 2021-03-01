@@ -90,12 +90,12 @@ class PurgeChannel extends Command {
                     if (input.startsWith("g!")) {
                         input = input.substring(2);
                     }
-                    parseInt(input);
+
                     if ((input == NaN) || (input < 0)) {
                         input = min;
                     }
 
-                    if ((input >= min) && (input <= max)) {
+                    if ((parseInt(input) >= min) && (parseInt(input) <= max)) {
 
                         fs.readFile(f_name, encoder, function (e, data) {
                             if (e) throw err;

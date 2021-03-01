@@ -29,10 +29,10 @@ client.on('ready', () => {
     new Logger(" Discord Client Status: SUCCESS..");
     switch (client.user.username) {
         case "Trecco":
-             new Logger("Logged in as " + Color.colorCodes.YELLOW + "The Gecko Cutie <3" + Color.colorCodes.RESET);
+             new Logger(Color.colorCodes.GREEN + "Logged in as " + Color.colorCodes.WHITE + "Trecco" + Color.colorCodes.RESET);
              break;
          default:
-              new Logger("Logged in as " + client.user.username);
+              new Logger(Color.colorCodes.GREEN + "Logged in as " + Color.colorCodes.WHITE + client.user.username);
      }
 
     client.on('message', msg => {
@@ -81,6 +81,12 @@ client.on('ready', () => {
             console.log(e);
         }
     });
+
+    client.on("guildMemberAdd", member => {
+        const channel = getDefaultChannel(member.guild);
+        channel.send(`Welcome ${member} to the server!`);
+      });
+
 });
 
 if (process.env.TOKEN != undefined) {        
