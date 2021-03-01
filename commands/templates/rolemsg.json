@@ -1,10 +1,17 @@
-{
-    "header": {
-      "title": "**SELECT YOUR ROLES",
-      "text": "Welcome to the <#814179912780087318> channel\nHere you can select roles to add to your profile. View each category and assign roles by reacting to the corresponding\nemotes below each of the sections to add/remove that role.\n"
-    },
-    "category_1": {
-      "title": "**LIST 1 ➔ FIGHTERS (ROW 1)**",
-      "text": ":mario: - Mario\n:donkey_kong: - Donkey Kong\n:link: - Link\n:samus: - Samus\n:dark_samus: - Dark Samus\n:yoshi: - Yoshi\n:kirby: - Kirby\n:fox: - Fox\n:pikachu: - Pikachu\n:luigi: - Luigi\n:ness: - Ness\n:captain_falcon: - Captain Falcon\n"
-    }
-  }
+[
+    [
+      {
+        "name": "Please read the below information about assigning server role(s)",
+        "title": "SELECT YOUR ROLES",
+        "description": "Welcome to the <#814179912780087318> channel\nHere you can select roles to add to your profile. View each category and assign roles by reacting to the corresponding\nemotes below each of the sections to add/remove that role.\n"
+      }
+    ],
+    [
+      {
+        "name": "Listing 7 option(s) for section below (( Pg 1 of 7 )):",
+        "title": "Section 1 ➔ FIGHTERS (Row #1)",
+        "description": ":mario: - Mario\n:donkey_kong: - Donkey Kong\n:link: - Link\n:samus: - Samus\n:dark_samus: - Dark Samus\n:yoshi: - Yoshi\n:kirby: - Kirby\n:fox: - Fox\n:pikachu: - Pikachu\n:luigi: - Luigi\n:ness: - Ness\n:captain_falcon: - Captain Falcon\n"
+      }
+    ]
+   
+  ]

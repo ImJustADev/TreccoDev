@@ -1,4 +1,5 @@
 const Command = require('./Command.js');
+var config = require('../config.json');
 
 class Coin extends Command {
   constructor(msg) {

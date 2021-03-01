@@ -1,10 +1,9 @@
-const { send } = require("process");
-
 class Channel {
-    constructor() {
+    constructor() {}
 
-        send(content) 
+        send(content) {
+
+        } 
     }
-}
 
     module.exports = Channel;

@@ -1,0 +1,17 @@
+[
+    [
+      {
+        "name": "Evoking Channel Purge Method(s)...",
+        "title": "Process has finished executing",
+        "description": "This action is **permanent**\nand can only be reverted\nvia a local server backup.\n"
+      }
+    ],
+    [
+      {
+        "name": "Channel Purge Statistics (TBA)",
+        "title": "Showing recent server purge statistics...",
+        "description": "By: ${msg.member.id}\nIn: ${msg.channel.id}\nTime: ${msg.member.created_at}\nRole ID (Top): ${msg.member.roles.highest\nRole: ${msg.member.roles.highest.name}\n\nChannel Purge took ${trecco.purge.timespandif} to complete.\n\n\nTreccoBot v1.0"
+      }
+    ]
+   
+  ]

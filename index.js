@@ -9,6 +9,7 @@ const Coin = require('./commands/Coin.js');
 const Color = require('./templates/Color.js');
 const ServerInfo = require('./commands/ServerInfo.js');
 const RoleMenu = require('./commands/RoleMenu.js');
+const PurgeChannel = require('./commands/PurgeChannel.js');
 
 const color = 0xFF9900;
 var npm = require('./package.json');
@@ -59,11 +60,14 @@ client.on('ready', () => {
 
                 //clean code to map<> (2/28/2021) (Blaze)
 
-                else if (input.toLowerCase == ("role")) {
+                else if (input.startsWith("role")) {
                     new Roles(msg);
                 }
-                else if (input.startsWith("rolemenu")) {
+                else if (input.startsWith("rm")) {
                     new RoleMenu(msg);
+                }
+                else if (input.startsWith("purge")) {
+                    new PurgeChannel(msg);
                 }
                 else if (input == "coin" || input == "c") {
                     new Coin(msg);
