@@ -82,7 +82,7 @@ class Roles extends Command {
                 }
                 */
 
-                var found = true;
+                var found = false;
                 fs.readFile('./commands/templates/f_data.json', encoder, function (err, data) {
                     if (err) throw err;
                     var obj = JSON.parse(data);
@@ -132,78 +132,21 @@ class Roles extends Command {
                     else {
                         if (fRole != undefined) {
                             if (msg.member.roles.cache.has(fRole)) {
-                                msg.delete();
 
                                 msg.member.roles.remove(fRole).catch(console.error);
-                                msg.channel.send("You have removed the **" + fName + "** role from your profile.\nIf you are finished, please react to the emote below.")
-                                    .then(msg => {
-                                        msg.react('✔️');
-                                        const filter = (reaction, user) => {
-                                            return ['✔️'].includes(reaction.emoji.name) && user.id === msg.member.id;
-                                        };
-                                
-                                        msg.awaitReactions(filter, { max: 1, time: 7000, errors: ['time'] })
-                                            .then(collected => {
-                                                const reaction = collected.first();
-                                
-                                                if (reaction.emoji.name === '✔️') {
-                                                    msg.delete();
-                                                    //msg.reply('you reacted with a thumbs up.');
-                                                } else {
-                                                    //message.reply('you reacted with a thumbs down.');
-                                                }
-                                            })
-                                            .catch(collected => {
-                                                msg.delete();
+                                msg.channel.send("You have removed the **" + fName + "** role from your profile.")
 
-                                                /*
-                                                console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
-                                                message.reply('you didn\'t react with neither a thumbs up, nor a thumbs down.');
-                                                */
-
-                                            });
-                                    });
-                            
-                                }
                             }
-                        
+
 
                             //Add
                             else {
-                                msg.delete();
                                 msg.member.roles.add(fRole).catch(console.error);
-                                msg.channel.send("You have added role **" + fName + "** to your profile.\nIf you are finished, please react to the emote below.")
-                                    .then(msg => {
-                                        msg.react('✔️');
-                                        const filter = (reaction, user) => {
-                                            return ['✔️'].includes(reaction.emoji.name) && user.id === msg.member.id;
-                                        };
-                                
-                                        msg.awaitReactions(filter, { max: 1, time: 7000, errors: ['time'] })
-                                            .then(collected => {
-                                                const reaction = collected.first();
-                                
-                                                if (reaction.emoji.name === '✔️') {
-                                                    msg.delete();
-                                                    //msg.reply('you reacted with a thumbs up.');
-                                                } else {
-                                                    //message.reply('you reacted with a thumbs down.');
-                                                }
-                                            })
-                                            .catch(collected => {
-                                                msg.delete();
-
-                                                /*
-                                                console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
-                                                message.reply('you didn\'t react with neither a thumbs up, nor a thumbs down.');
-                                                */
-
-                                            });
-                                    
-                                });
+                                msg.channel.send("You have added role **" + fName + "** to your profile.");
                             }
-                    }
+                        }
 
+                    }
                 });
             } catch (e) { }
 
