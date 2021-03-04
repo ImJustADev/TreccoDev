@@ -52,20 +52,20 @@ class RoleMenu extends Command {
     constructor(msg, client) {
       super(msg);
       if ((msg.member.roles.cache.has(admin))) {
-        if (msg.channel.id === output) {
+        if (msg.channel.id === roles) {
 
             try {
                         
                 fs.readFile('./commands/templates/rolemsg.json', 'utf8', function(err, data) {
                 if (err) throw err;
                 var obj = JSON.parse(data);
+                //msg.channel.send(":white_check_mark: Generated Text Element for node \"" + "*mongodb.blazethesnep.trecco.chnanel.roles.node*" + "\"");
+                //msg.channel.send("*(( To view these changes go to channel* <#" + roles + "> *))*");
+                msg.delete();
                 for (var i = 0; i < obj.length; i++) {
                     for (var j = 0; j < obj[i].length; j++) {
 
-                        
-
-                        msg.channel.send(":white_check_mark: Generated Text Element for node \"" + "*mongodb.blazethesnep.trecco.chnanel.roles.node*" + "\"");
-                        msg.channel.send("*(( To view these changes go to channel* <#" + roles + "> *))*");
+                    
 
 
                         //cleaner embed builder maybe? (2/28/2021) (Blaze)
@@ -73,12 +73,40 @@ class RoleMenu extends Command {
                         embed: {
                             author: {
                             name: obj[i][j].name,
-                            },
+                            "icon_url": "https://cdn.discordapp.com/attachments/816877389018824704/816878422524559401/orange.png"
+                        },
                             title: obj[i][j].title,
                             color: color,
                             description: obj[i][j].description,
+                            footer: {
+                                "text": "TreccoTheGecko v1.0 by Blaze#0069"
+                            }
                         }
+                        
                         });
+                        /*
+                        try {
+                        msg.react('815359073977237565'); //Mario
+                        msg.react('815359073989820456'); //DK
+                        msg.react('815359073679573043'); //Link
+                        msg.react('816895826789269514'); //Samus
+                        msg.react('815359073826504762'); //Dark Samus
+                        msg.react('816896786588499979'); //Yoshi
+                        msg.react('815359073905279006'); //Kirby
+                        msg.react('816897142932897882'); //Fox
+                        msg.react('816897478854180894'); //Pikachu
+                        msg.react('815359074002272306'); //Luigi
+                        msg.react('816898019055632384'); //Ness
+                        msg.react('815359073885224970'); //Captain Falcon
+                        } catch (error) {
+                            console.error('One of the emojiis failed to react.');
+                        }
+                        */
+
+
+
+
+
 
                         //found = true;
                         break;

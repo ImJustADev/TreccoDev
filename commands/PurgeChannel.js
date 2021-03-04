@@ -7,7 +7,7 @@ const encoder = 'utf8';
 //Category: Embed Colors
 const color = 0xFF9900; //orange (default)
 const e_color = 0xFD0061; //red (error)
-const g_color = 0x008E44; //green (success)
+const g_color = 15823988; //green (success)
 
 //Category: Ranges
 const min = config.CMD_PURGE_MINIMUM; // min
@@ -78,16 +78,15 @@ const other_words = ["Robery", "Kidnap", "Hug", "Fruitcake", "Murder", "Octapus"
 class PurgeChannel extends Command {
     constructor(msg, client) {
         super(msg);
+
+        var executor = msg.member.user.tag;
+        var e_id = msg.author.id; 
         if ((msg.member.roles.cache.has(admin))) {
             if (msg.author.id === head_gecko_id) {
 
                 try {
 
                     var input = msg.content.split(" ")[1]; //input
-
-                    if (input.startsWith("g!")) {
-                        input = input.substring(2);
-                    }
 
                     if ((parseInt(input) >= min) && (parseInt(input) <= max)) {
 
@@ -106,14 +105,8 @@ class PurgeChannel extends Command {
                         //not on blacklist
                             if (m == 0) {
                                 
-                                async () => {
-                                    let fetched;
-                                    do {
-                                      fetched = await channel.fetchMessages({limit: max});
-                                      message.channel.bulkDelete(fetched);
-                                    }
-                                    while(fetched.size >= 2);
-                                  }
+                                msg.channel.bulkDelete(input)
+                                .catch(console.error);
 
                                   for (i = 0; i < obj.length; i++) {
                                     for (j = 0; j < obj[i].length; j++) {
@@ -121,12 +114,22 @@ class PurgeChannel extends Command {
                                             embed: {
                                                 author: {
                                                     name: obj[i][j].name,
+                                                    "icon_url": "https://cdn.discordapp.com/attachments/816877389018824704/816878422524559401/orange.png"
                                                 },
                                                 title: obj[i][j].title,
                                                 color: g_color,
-                                                description: obj[i][j].description,
+                                                description: "\nMessages Affected: `" + input + "`\nExecuted By: `" + executor + "`\nUser ID: `" + e_id + "`\nChannel(s) Affected: `#" + msg.channel.name + "`\nTime: `" + msg.createdAt + "`\n\n",
+                                                footer: {
+                                                    "text": "\nTreccoTheGecko v1.0"
+                                                }
                                             }
-                                        });
+                                        }).then(msg => {
+                                            msg.delete( {
+                                                timeout: 5000
+                                            })
+                                        })
+                                        .catch(console.error);
+                
                                     }
                                 }
                             }

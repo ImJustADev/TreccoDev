@@ -22,7 +22,7 @@ client.on('ready', () => {
 
     new Logger('Build ' + build);
     client.user.setPresence({
-        activity: { name: 'Lounging Around'  }, status: 'online' })
+        activity: { name: 'with Tail'  }, status: 'online' })
         .then(console.log)
         .catch(console.error);
     
