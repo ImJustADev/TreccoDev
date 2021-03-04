@@ -2,8 +2,6 @@ var config = require('../config.json');
 const Command = require('./Command.js');
 
 const fs = require('fs');
-const { Channel } = require('discord.js');
-const f_name = './commands/templates/purge.json';
 const encoder = 'utf8';
 
 //Category: Embed Colors
@@ -85,19 +83,15 @@ class PurgeChannel extends Command {
 
                 try {
 
-                    var input = toString(msg.content.split(" ")[1]); //input
+                    var input = msg.content.split(" ")[1]; //input
 
                     if (input.startsWith("g!")) {
                         input = input.substring(2);
                     }
 
-                    if ((input == NaN) || (input < 0)) {
-                        input = min;
-                    }
-
                     if ((parseInt(input) >= min) && (parseInt(input) <= max)) {
 
-                        fs.readFile(f_name, encoder, function (e, data) {
+                        fs.readFile('./commands/templates/purge.json', encoder, function (e, data) {
                             if (e) throw err;
                             var obj = JSON.parse(data);
 
@@ -109,12 +103,20 @@ class PurgeChannel extends Command {
                                 k++;
                             }
 
-                            if (m == 0) { //not on blacklist
-                                for (i = 0; i < obj.length; i++) {
+                        //not on blacklist
+                            if (m == 0) {
+                                
+                                async () => {
+                                    let fetched;
+                                    do {
+                                      fetched = await channel.fetchMessages({limit: max});
+                                      message.channel.bulkDelete(fetched);
+                                    }
+                                    while(fetched.size >= 2);
+                                  }
+
+                                  for (i = 0; i < obj.length; i++) {
                                     for (j = 0; j < obj[i].length; j++) {
-                                        
-                                        channel.bulkDelete(input)
-                                        .then(msg => 
                                         msg.channel.send({
                                             embed: {
                                                 author: {
@@ -124,7 +126,7 @@ class PurgeChannel extends Command {
                                                 color: g_color,
                                                 description: obj[i][j].description,
                                             }
-                                        })).catch(console.error);
+                                        });
                                     }
                                 }
                             }
