@@ -2,6 +2,7 @@ var config = require('../config.json');
 const Command = require('./Command.js');
 
 const fs = require('fs');
+const { GuildAuditLogs, Guild } = require('discord.js');
 const encoder = 'utf8';
 
 //Category: Embed Colors
