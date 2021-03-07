@@ -33,7 +33,7 @@ var response = config.RESPONSE_CHANNEL_ID; // #response
 var format = config.FORMAT_CHANNEL_ID; // #format
 
 //Category: Important
-var welcome = config.WELCOME_CHANNEL_ID; // #welcome
+const welcome = config.WELCOME_CHANNEL_ID; // #welcome
 var announcements = config.ANNOUNCEMENT_CHANNEL_ID; // #announcements
 var changelog = config.CHANGELOG_CHANNEL_ID; // #changelog
 var boosts = config.BOOSTS_CHANNEL_ID; // #boosts
